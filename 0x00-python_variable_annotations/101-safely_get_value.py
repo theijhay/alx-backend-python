@@ -6,12 +6,9 @@ from typing import TypeVar, Mapping, Any, Union
 T = TypeVar('T')
 
 
-def safely_get_value(
-    dct: Mapping[Any, T],
-    key: Any,
-    default: Union[T, None] = None
-) -> Union[Any, T]:
-    """Check and return the value"""
+def safely_get_value(dct: Mapping[Any, T], key: Any,
+                     default: Union[T, None] = None) -> Union[Any, T]:
+    """Return either an object of any type or an object of the type"""
     if key in dct:
         return dct[key]
     else:
