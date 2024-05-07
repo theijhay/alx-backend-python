@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Async Generator"""
+""" a python module to loop 10 times """
 
-import asyncio
 import random
-from typing import Generator
+import asyncio
+from typing import AsyncGenerator
 
 
-async def async_generator():
+async def async_generator() -> AsyncGenerator[float, None]:
     """
     Async generator that yields a random number between 0 and 10 every second,
     10 times.
