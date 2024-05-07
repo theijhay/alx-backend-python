@@ -1,20 +1,13 @@
 #!/usr/bin/env python3
 """Async Comprehensions"""
 
-
-import asyncio
 from typing import List
-from random import uniform
-async_generator = __import__('0-async_generator').async_generator
+from importlib import import_module as using
 
 
-async def async_generator() -> List[float]:
-    """Collect 10 random numbers using an async comprehension
-    over async_generator"""
-    await asyncio.sleep(1)
-    return [uniform(0, 10) for _ in range(10)]
+async_generator = using('0-async_generator').async_generator
 
 
 async def async_comprehension() -> List[float]:
-    async_gen = await async_generator()
-    return [num for num in async_gen]
+    '''makes a list of 10 random numbers between 0 and 10'''
+    return [num async for num in async_generator()]
